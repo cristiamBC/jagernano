@@ -1,0 +1,16 @@
+{
+	"compatibility_date": "2025-10-08",
+	"main": "src/index.ts",
+	"name": "jagernano",
+	"upload_source_maps": true,
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_id": "00f0d8fa-e172-4aae-ab9f-2f620c7fe73d",
+			"database_name": "jagernano-database"
+		}
+	],
+	"observability": {
+		"enabled": true
+	}
+}
