@@ -1,12 +1,13 @@
 import { renderHtml } from "./renderHtml";
-
+async function loadTemplate(path: string): Promise<string> {
+  const url = new URL(path, import.meta.url);
+  const res = await fetch(url);
+  return await res.text();
+}
 export default {
-  // Cloudflare Workers usa import.meta.url + fetch para leer archivos en /src
-  async function loadTemplate(path: string): Promise<string> {
-    const url = new URL(path, import.meta.url);
-    const res = await fetch(url);
-    return await res.text();
-  }
+  async fetch(request: Request, env: any, ctx: ExecutionContext) {
+    const url = new URL(request.url);
+  
     if (request.method === 'GET' && url.pathname === '/') {
       try {
         const formHtml = await loadTemplate('./templates/form.html');
