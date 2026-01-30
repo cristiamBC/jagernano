@@ -1,3 +1,4 @@
+export const formHtml = `
 <form id="racimoForm">
   <label>Semana: <input type="number" name="semana" required /></label><br />
   <label>Corte: <input type="number" name="corte" required /></label><br />
@@ -21,14 +22,15 @@
       body: JSON.stringify(data)
     }).then(r => r.json());
 
-    resultado.innerHTML = `
+    resultado.innerHTML = \`
       <strong>Registro exitoso</strong><br>
-      Consecutivo: ${res.consecutivo}<br>
-      Esperados: ${res.cantidad_esperada}<br>
-      Registrados: ${res.registrados_lote}<br>
-      Faltan: ${res.faltan}
-    `;
+      Consecutivo: \${res.consecutivo}<br>
+      Esperados: \${res.cantidad_esperada}<br>
+      Registrados: \${res.registrados_lote}<br>
+      Faltan: \${res.faltan}
+    \`;
     form.reset();
   });
 </script>
+`;
 
