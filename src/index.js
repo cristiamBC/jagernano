@@ -2,6 +2,14 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
+      // Si el usuario visita la raíz ("/"), mostramos el HTML del formulario
+    if (request.method === 'GET' && url.pathname === '/') {
+      const html = await fetch(new URL('./form.html', import.meta.url)).then(res => res.text());
+      return new Response(html, {
+        headers: { 'Content-Type': 'text/html' }
+      });
+    }
+
     if (request.method === 'POST' && url.pathname === '/grabar') {
       const data = await request.json();
       const { semana, corte, lote, peso } = data;
