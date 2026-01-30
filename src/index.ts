@@ -1,5 +1,5 @@
 import { renderHtml } from "./renderHtml";
-import formTemplate from "./templates/form.html?raw";
+import { formHtml } from "./templates/form";
 
 export default {
   async fetch(request: Request, env: any, ctx: ExecutionContext) {
@@ -7,10 +7,9 @@ export default {
   
       // FRONTEND
     if (request.method === "GET" && url.pathname === "/") {
-      return new Response(
-        renderHtml(formTemplate),
-        { headers: { "Content-Type": "text/html" } }
-      );
+      return new Response(renderHtml(formHtml), {
+        headers: { "Content-Type": "text/html" }
+      });
     }
     
     if (request.method === 'POST' && url.pathname === '/grabar') {
