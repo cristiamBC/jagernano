@@ -45,7 +45,6 @@ export default {
     // Página de prueba
     return new Response('Worker funcionando. Usa POST /grabar para registrar.');
   }
-}
+};
 
-#} satisfies ExportedHandler<Env>;
 
