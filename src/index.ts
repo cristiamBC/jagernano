@@ -1,24 +1,18 @@
 import { renderHtml } from "./renderHtml";
-async function loadTemplate(path: string): Promise<string> {
-  const url = new URL(path, import.meta.url);
-  const res = await fetch(url);
-  return await res.text();
-}
+import formTemplate from "./templates/form.html?raw";
+
 export default {
   async fetch(request: Request, env: any, ctx: ExecutionContext) {
     const url = new URL(request.url);
   
-    if (request.method === 'GET' && url.pathname === '/') {
-      try {
-        const formHtml = await loadTemplate('./templates/form.html');
-        return new Response(renderHtml(formHtml), {
-          headers: { 'Content-Type': 'text/html' }
-        });
-      } catch (err) {
-        return new Response("Error al cargar formulario: " + err.message, { status: 500 });
-      }
+      // FRONTEND
+    if (request.method === "GET" && url.pathname === "/") {
+      return new Response(
+        renderHtml(formTemplate),
+        { headers: { "Content-Type": "text/html" } }
+      );
     }
-
+    
     if (request.method === 'POST' && url.pathname === '/grabar') {
       const data = await request.json();  // espera JSON tipo { semana, corte, lote, peso }
 
