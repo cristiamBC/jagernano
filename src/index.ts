@@ -1,7 +1,7 @@
 import { renderHtml } from "./renderHtml";
 import { formHtml } from "./templates/form";
 import { homeHtml } from "./templates/home";
-
+import { calendarioHtml } from "./templates/calendario"; 
 export default {
   async fetch(request: Request, env: any, ctx: ExecutionContext) {
     const url = new URL(request.url);
@@ -24,6 +24,13 @@ export default {
     // 🟡 Próxima ruta: reporte por semana (en desarrollo)
     if (request.method === "GET" && url.pathname === "/reporte") {
       return new Response("Página de reporte aún en construcción", { status: 200 });
+    }
+    
+    // 🟣 Vista del calendario de enfunde
+    if (request.method === "GET" && url.pathname === "/calendario") {
+      return new Response(renderHtml(calendarioHtml), {
+        headers: { "Content-Type": "text/html" }
+      });
     }
     
     if (request.method === 'POST' && url.pathname === '/grabar') {
