@@ -1,15 +1,28 @@
-import { renderHtml } from "./renderHtml";
 import { formHtml } from "./templates/form";
+import { homeHtml } from "./templates/home";
 
 export default {
   async fetch(request: Request, env: any, ctx: ExecutionContext) {
     const url = new URL(request.url);
   
       // FRONTEND
+    // 🔵 Página principal
     if (request.method === "GET" && url.pathname === "/") {
+      return new Response(renderHtml(homeHtml), {
+        headers: { "Content-Type": "text/html" }
+      });
+    }
+
+    // 🟢 Formulario de ingreso
+    if (request.method === "GET" && url.pathname === "/registrar") {
       return new Response(renderHtml(formHtml), {
         headers: { "Content-Type": "text/html" }
       });
+    }
+
+    // 🟡 Próxima ruta: reporte por semana (en desarrollo)
+    if (request.method === "GET" && url.pathname === "/reporte") {
+      return new Response("Página de reporte aún en construcción", { status: 200 });
     }
     
     if (request.method === 'POST' && url.pathname === '/grabar') {
