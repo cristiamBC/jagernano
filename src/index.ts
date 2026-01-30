@@ -1,3 +1,4 @@
+import { renderHtml } from "./renderHtml";
 import { formHtml } from "./templates/form";
 import { homeHtml } from "./templates/home";
 
