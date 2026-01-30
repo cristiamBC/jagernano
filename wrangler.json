@@ -12,5 +12,8 @@
 	],
 	"observability": {
 		"enabled": true
-	}
+	},
+	"site": {
+    "bucket": "./public"
+    }
 }
