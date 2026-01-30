@@ -95,16 +95,8 @@ export default {
 // Funciones auxiliares
 
 function getColoresParaSemanaIndex(desde: number) {
-  const colores = [
-    "LILA",
-    "ROJO",
-    "CAFE",
-    "AMARILLO",
-    "VERDE",
-    "AZUL",
-    "BLANCO",
-    "NEGRO",
-  ];
+  const colores = ["ROJO", "CAFE", "AMARILLO", "VERDE", "AZUL", "BLANCO", "NEGRO", "LILA"];
+  
   const total = colores.length;
 
   const idx = ((desde % total) + total) % total; // siempre positivo
