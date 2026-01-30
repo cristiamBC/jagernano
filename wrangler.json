@@ -1,6 +1,6 @@
 {
 	"compatibility_date": "2025-10-08",
-	"main": "src/index.js",
+	"main": "src/index.ts",
 	"name": "jagernano",
 	"upload_source_maps": true,
 	"d1_databases": [
