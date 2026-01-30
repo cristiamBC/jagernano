@@ -121,9 +121,9 @@ function getColoresParaSemanaIndex(desde: number) {
 }
 
 function semanasDesdeBase(anio: number, semana: number): number {
-  // Semana base = semana 52 del 2017
-  return (anio - 2017) * 52 + (semana - 52);
+  return (anio - 2017) * 52 + semana - 52;
 }
+
 
 
 
