@@ -9,5 +9,8 @@ export const homeHtml = `
     <a href="/reporte">
       <button style="width: 100%;">📊 Ver Reporte Semanal</button>
     </a>
+    <a href="/calendario">
+      <button style="width: 100%;">📅 Calendario de Enfunde</button>
+    </a>
   </div>
 `;
